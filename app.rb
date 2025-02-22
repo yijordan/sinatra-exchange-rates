@@ -26,5 +26,12 @@ end
 get("/:convert_from/:convert_to") do
   @first_currency = params.fetch("convert_from")
   @second_currency = params.fetch("convert_to")
+
+  @list_url = "https://api.exchangerate.host/convert?from=USD&to=INR&amount=1&access_key=" + ENV.fetch("EXCHANGE_KEY")
+  @resp = HTTP.get(@list_url)
+  @raw_response = @resp.to_s
+  @parsed_response = JSON.parse(@raw_response)
+  @result = @parsed_response.fetch("result")
+
   erb(:second_currency)
 end
