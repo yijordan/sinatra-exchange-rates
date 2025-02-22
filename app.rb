@@ -26,5 +26,5 @@ end
 get("/:convert_from/:convert_to") do
   @first_currency = params.fetch("convert_from")
   @second_currency = params.fetch("convert_to")
-  erb(:first_currency)
+  erb(:second_currency)
 end
