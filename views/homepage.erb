@@ -1,0 +1,15 @@
+<h1>Currency pairs</h1>
+
+<%= params %>
+
+<%= HTTP.get() %>
+<ul>
+  <% @currency.each do |a_currency| %>
+    <li>
+      <a href="/<%= @currency %>">
+      Convert 1 
+      <%= a_currency %> to...
+      </a>
+    </li>
+  <% end %>
+</ul>
